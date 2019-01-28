@@ -1,11 +1,13 @@
 export default num => {
-	let answer = num
-	if (num % 3 && num % 5) {
-		answer = 'fizzbuzz'
-	} else if (num % 3) {
-		answer = 'fizz'
-	} else if (num % 5) {
-		answer = 'buzz'
+	let answer = ''
+	if (num % 3 === 0) {
+		answer += 'fizz'
 	}
-	return answer;
+	if (num % 5 === 0) {
+		answer += 'buzz'
+	}
+	if (answer === '') {
+		answer = num
+	}
+	return answer
 }
