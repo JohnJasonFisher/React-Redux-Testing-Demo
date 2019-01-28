@@ -1,0 +1,31 @@
+{
+	"extends": [
+		"react-app"
+	],
+	"parser": "babel-eslint",
+	"rules": {
+		"strict": 0,
+		"quotes": [
+			"warn",
+			"single"
+		],
+		"semi": [
+			"warn",
+			"never"
+		],
+		"no-duplicate-imports": [
+			"error",
+			{
+				"includeExports": true
+			}
+		],
+		"object-curly-spacing": [
+			"warn",
+			"never"
+		],
+		"arrow-parens": [
+			"warn",
+			"as-needed"
+		]
+	}
+}

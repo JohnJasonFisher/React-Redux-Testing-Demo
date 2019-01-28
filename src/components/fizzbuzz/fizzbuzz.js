@@ -1,4 +1,4 @@
-export const fizzbuzz = num => {
+export default num => {
 	let answer = ''
 	if (num % 3 === 0) {
 		answer += 'fizz'
@@ -7,7 +7,7 @@ export const fizzbuzz = num => {
 		answer += 'buzz'
 	}
 	if (answer === '') {
-		answer = num
+		answer = num.toString()
 	}
 	return answer
 }
