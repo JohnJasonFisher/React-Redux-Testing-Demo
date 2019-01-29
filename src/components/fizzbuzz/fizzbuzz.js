@@ -32,6 +32,6 @@ export const fizzbuzzFunc = num => {
 		text = num.toString()
 		textColor = 'auto' //black
 	}
-	let answer = <p style={{color: textColor}}>{text}</p>
+	let answer = <p style={{color: textColor}} key={'Fizzbuzz'+num}>{text}</p>
 	return answer
 }
