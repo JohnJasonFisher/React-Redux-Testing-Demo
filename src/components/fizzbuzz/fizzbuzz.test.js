@@ -1,19 +1,19 @@
-import fizzbuzz from './fizzbuzz'
+import {fizzbuzzFunc} from './Fizzbuzz'
 
-describe('fizzbuzz(num)', () => {
+describe('fizzbuzzFunc(num)', () => {
 	it('returns fizz when given a num % 3 === 0', () => {
-		expect(fizzbuzz(3)).toBe('fizz');
+		expect(fizzbuzzFunc(3)).toBe('fizz');
 	});
 
 	it('returns buzz when given a num % 5 === 0', () => {
-		expect(fizzbuzz(5)).toBe('buzz');
+		expect(fizzbuzzFunc(5)).toBe('buzz');
 	});
 
 	it('returns buzz when given a num % 5 === 0 && a num % 3 === 0', () => {
-		expect(fizzbuzz(15)).toBe('fizzbuzz');
+		expect(fizzbuzzFunc(15)).toBe('fizzbuzzFunc');
 	});
 
 	it('returns a number', () => {
-		expect(fizzbuzz(2)).toBe('2');
+		expect(fizzbuzzFunc(2)).toBe('2');
 	});
 });

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Fizzbuzz from '../fizzbuzz/Fizzbuzz'
 
 class App extends Component {
 	render() {
@@ -6,6 +7,7 @@ class App extends Component {
 			<div className='App'>
 				<header className='App-header'>
 					<h1>Yay, React!</h1>
+					<Fizzbuzz/>
 				</header>
 			</div>
 		)
