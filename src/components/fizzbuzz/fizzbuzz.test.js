@@ -1,7 +1,6 @@
 import Enzyme from 'enzyme'
 import Fizzbuzz, {fizzbuzzFunc} from './Fizzbuzz'
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 describe('fizzbuzzFunc(num)', () => {
 

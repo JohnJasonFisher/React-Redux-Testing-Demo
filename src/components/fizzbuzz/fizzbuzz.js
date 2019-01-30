@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+// import {connect} from 'react-redux'
 
 export default class Fizzbuzz extends Component {
 	render() {
@@ -32,3 +33,10 @@ export const fizzbuzzFunc = num => {
 	let answer = <p style={{color: textColor}} key={'Fizzbuzz'+num}>{text}</p>
 	return answer
 }
+
+// export const mapStateToProps = (state, props) => ({
+// 	state.getState.,
+// 	...props
+// })
+
+// export default connect(mapStateToProps)(Fizzbuzz)
