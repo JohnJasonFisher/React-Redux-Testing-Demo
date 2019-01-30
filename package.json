@@ -24,7 +24,12 @@
 		"collectCoverageFrom": [
 			"src/**/*.{js,jsx}",
 			"!./node_modules/",
-			"!src/index.js"
+			"!src/index.js",
+			"!src/setupTests.js"
 		]
+	},
+	"devDependencies": {
+		"enzyme": "^3.8.0",
+		"enzyme-adapter-react-16": "^1.8.0"
 	}
 }
