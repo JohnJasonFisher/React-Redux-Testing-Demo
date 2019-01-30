@@ -2,14 +2,11 @@ import React, {Component} from 'react'
 
 export default class Fizzbuzz extends Component {
 	render() {
-		let fbcomp = num => {
-			const pElements = []
-			for (let i=1;i<=num;i++) {
-				pElements.push(fizzbuzzFunc(i))
-			}
-			return pElements
+		const pElements = []
+		for (let i=1;i<=this.props.num;i++) {
+			pElements.push(fizzbuzzFunc(i))
 		}
-		return fbcomp(100)
+		return pElements
 	}
 }
 

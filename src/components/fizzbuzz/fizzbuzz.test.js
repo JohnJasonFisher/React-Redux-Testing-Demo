@@ -1,5 +1,7 @@
-import {fizzbuzzFunc} from './Fizzbuzz'
+import Enzyme from 'enzyme'
+import Fizzbuzz, {fizzbuzzFunc} from './Fizzbuzz'
 import React from 'react'
+import ReactDOM from 'react-dom'
 
 describe('fizzbuzzFunc(num)', () => {
 
@@ -36,5 +38,26 @@ describe('fizzbuzzFunc(num)', () => {
 		expectComp = fizzbuzzFunc(2)
 		resultComp = <p style={{color: 'auto'}} key={'Fizzbuzz2'}>2</p>
 		expect(expectComp).toEqual(resultComp)
+	})
+})
+
+describe('<Fizzbuzz/>', () => {
+	// this will not work, consider Enzyme
+	xit('returns 100 p elements when props.num = 100', () => {
+		const wrapper = <Fizzbuzz num={100}/>
+
+		//received is <Fizzbuzz num={100}/>
+		console.log(Object.keys(wrapper))
+		expect(wrapper).toBe(100)
+	})
+
+	it('returns 100 p elements when props.num = 100', () => {
+		const wrapper = Enzyme.shallow(<Fizzbuzz num={100}/>)
+		const resultComp1 = <p style={{color: 'auto'}} key={'Fizzbuzz1'}>1</p>
+		const resultComp3 = <p style={{color: '#41f46a'}} key={'Fizzbuzz3'}>fizz</p>
+
+		expect(wrapper.length).toBe(100)
+		expect(wrapper.get(0)).toEqual(resultComp1)
+		expect(wrapper.get(2)).toEqual(resultComp3)
 	})
 })
