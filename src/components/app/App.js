@@ -19,9 +19,9 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = (state, props) => ({
-	isConnectedToRedux: state.isConnectedToRedux,
-	secretMessage: getSecretMessage(state),
+const mapStateToProps = (State, props) => ({
+	isConnectedToRedux: State.isConnectedToRedux,
+	secretMessage: getSecretMessage(State),
 	...props
 })
 

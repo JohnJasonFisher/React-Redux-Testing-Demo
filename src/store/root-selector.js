@@ -1,2 +1,2 @@
-export const getIsConnectedToRedux = state => state.isConnectedToRedux
-export const getSecretMessage = state => state.secretMessage
+export const getIsConnectedToRedux = store => store.isConnectedToRedux
+export const getSecretMessage = store => store.secretMessage
