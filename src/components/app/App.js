@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Fizzbuzz from '../fizzbuzz/Fizzbuzz'
 import {connect} from 'react-redux'
 import {getSecretMessage} from '../../store/root-selector'
+import AddFizzbuzzNum from '../addFizzbuzzNum/AddFizzbuzzNum'
 
 class App extends Component {
 	render() {
@@ -11,6 +12,7 @@ class App extends Component {
 				<header className='App-header'>
 					<h1>Yay, React!</h1>
 					<h2>{this.props.isConnectedToRedux ? 'Yay, Redux!' : 'Oh no, where\'s Redux!'}</h2>
+					<AddFizzbuzzNum/>
 					<Fizzbuzz num={100}/>
 					{secretP}
 				</header>

@@ -5,7 +5,14 @@ import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 import root from './store/root-reducer'
 
-export const store = createStore(root, {isConnectedToRedux: true, secretMessage: 'Tacos are awesome!'})
+export const store = createStore(
+	root,
+	{
+		isConnectedToRedux: true,
+		secretMessage: 'Tacos are awesome!',
+		numbers: []
+	}
+)
 
 ReactDOM.render(
 	<Provider store={store}>

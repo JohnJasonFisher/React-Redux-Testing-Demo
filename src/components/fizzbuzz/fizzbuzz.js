@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-// import {connect} from 'react-redux'
+import {connect} from 'react-redux'
 
-export default class Fizzbuzz extends Component {
+export class Fizzbuzz extends Component {
 	render() {
 		const pElements = []
 		for (let i=1;i<=this.props.num;i++) {
@@ -34,9 +34,9 @@ export const fizzbuzzFunc = num => {
 	return answer
 }
 
-// export const mapStateToProps = (state, props) => ({
-// 	state.getState.,
-// 	...props
-// })
+export const mapStateToProps = (state, props) => ({
+	state,
+	...props
+})
 
-// export default connect(mapStateToProps)(Fizzbuzz)
+export default connect(mapStateToProps)(Fizzbuzz)
