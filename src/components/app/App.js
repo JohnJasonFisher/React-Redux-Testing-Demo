@@ -5,7 +5,7 @@ import {getSecretMessage, getNumbers, getIsConnectedToRedux} from '../../store/r
 import AddFizzbuzzNum from '../addFizzbuzzNum/AddFizzbuzzNum'
 import {ADD_NUM} from '../../store/root-action'
 
-class App extends Component {
+export class App extends Component {
 	render() {
 		return (
 			<div className='App' style={{backgroundColor: '#F5F5F5'}}>
