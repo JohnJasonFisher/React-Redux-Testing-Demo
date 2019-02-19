@@ -12,7 +12,6 @@ class App extends Component {
 				<header className='App-header'>
 					<h1>Yay, React!</h1>
 					<h2>{this.props.isConnectedToRedux ? 'Yay, Redux!' : 'Oh no, where\'s Redux!'}</h2>
-					<h3>{this.props.numbersFromStore}</h3>
 					<AddFizzbuzzNum addNum={this.props.addNum}/>
 					{this.props.numbersFromStore.map(number => fizzbuzzFunc(number))}
 					<Fizzbuzz num={100}/>
