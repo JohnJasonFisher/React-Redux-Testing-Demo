@@ -1,30 +1,38 @@
 import React, {Component} from 'react'
-import Fizzbuzz from '../fizzbuzz/Fizzbuzz'
+import Fizzbuzz, {fizzbuzzFunc} from '../fizzbuzz/Fizzbuzz'
 import {connect} from 'react-redux'
-import {getSecretMessage} from '../../store/root-selector'
+import {getSecretMessage, getNumbers, getIsConnectedToRedux} from '../../store/root-selector'
 import AddFizzbuzzNum from '../addFizzbuzzNum/AddFizzbuzzNum'
+import {ADD_NUM} from '../../store/root-action'
 
 class App extends Component {
 	render() {
-		const secretP = this.props.secretMessage ? <p>{this.props.secretMessage}</p> : null
 		return (
 			<div className='App' style={{backgroundColor: '#F5F5F5'}}>
 				<header className='App-header'>
 					<h1>Yay, React!</h1>
 					<h2>{this.props.isConnectedToRedux ? 'Yay, Redux!' : 'Oh no, where\'s Redux!'}</h2>
-					<AddFizzbuzzNum/>
+					<h3>{this.props.numbersFromStore}</h3>
+					<AddFizzbuzzNum addNum={this.props.addNum}/>
+					{this.props.numbersFromStore.map(number => fizzbuzzFunc(number))}
 					<Fizzbuzz num={100}/>
-					{secretP}
+					{this.props.secretMessage}
 				</header>
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = (State, props) => ({
-	isConnectedToRedux: State.isConnectedToRedux,
-	secretMessage: getSecretMessage(State),
+const mapStateToProps = (state, props) => ({
+	isConnectedToRedux: getIsConnectedToRedux(state),
+	secretMessage: getSecretMessage(state),
+	numbersFromStore: getNumbers(state),
 	...props
 })
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = (dispatch, props) => ({
+	addNum: num => dispatch(ADD_NUM(num)),
+	...props
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

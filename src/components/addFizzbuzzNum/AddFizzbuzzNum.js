@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {ADD_NUM} from '../../store/root-action'
 
 export class AddFizzbuzzNum extends Component {
 	state = {number: ''}
@@ -9,7 +7,6 @@ export class AddFizzbuzzNum extends Component {
 		event.preventDefault()
 		this.props.addNum(parseInt(this.state.number, 10))
 		this.setState({number: ''})
-		console.log(this.state)
 	}
 
 	handleChange = event => {
@@ -24,13 +21,4 @@ export class AddFizzbuzzNum extends Component {
 	}
 }
 
-const mapStateToProps = (state, props) => ({
-	...props
-})
-
-const mapDispatchToProps = (dispatch, props) => ({
-	addNum: num => dispatch(ADD_NUM(num)),
-	...props
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddFizzbuzzNum)
+export default AddFizzbuzzNum
