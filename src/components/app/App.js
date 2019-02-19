@@ -29,7 +29,7 @@ const mapStateToProps = (state, props) => ({
 	...props
 })
 
-const mapDispatchToProps = (dispatch, props) => ({
+export const mapDispatchToProps = (dispatch, props) => ({
 	addNum: num => dispatch(ADD_NUM(num)),
 	...props
 })

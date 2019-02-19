@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 
 export class Fizzbuzz extends Component {
 	render() {
@@ -34,9 +33,4 @@ export const fizzbuzzFunc = num => {
 	return answer
 }
 
-export const mapStateToProps = (state, props) => ({
-	state,
-	...props
-})
-
-export default connect(mapStateToProps)(Fizzbuzz)
+export default Fizzbuzz
