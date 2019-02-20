@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Fizzbuzz from '../fizzbuzz/Fizzbuzz'
+import Fizzbuzz from '../fizzbuzz/fizzbuzz'
 
 class App extends Component {
 	render() {

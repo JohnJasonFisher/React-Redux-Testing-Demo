@@ -1,7 +1,6 @@
 import Enzyme from 'enzyme'
-import Fizzbuzz, {fizzbuzzFunc} from './Fizzbuzz'
+import Fizzbuzz, {fizzbuzzFunc} from './fizzbuzz'
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 describe('fizzbuzzFunc(num)', () => {
 
@@ -48,7 +47,7 @@ describe('<Fizzbuzz/>', () => {
 
 		//received is <Fizzbuzz num={100}/>
 		console.log(Object.keys(wrapper))
-		expect(wrapper).toBe(100)
+		expect(wrapper.props.num).toBe(100)
 	})
 
 	it('returns 100 p elements when props.num = 100', () => {
