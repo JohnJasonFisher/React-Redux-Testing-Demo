@@ -5,6 +5,7 @@ export class AddFizzbuzzNum extends Component {
 
 	handleClick = event => {
 		event.preventDefault()
+		// addNum: num => dispatch(ADD_NUM(num))
 		this.props.addNum(parseInt(this.state.number, 10))
 		this.setState({number: ''})
 	}

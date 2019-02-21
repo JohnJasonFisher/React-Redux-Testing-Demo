@@ -74,10 +74,5 @@ describe('<ConnectedApp/> With Redux', () => {
 
 		expect(dispatch).toHaveBeenCalledTimes(1)
 		expect(dispatch).toHaveBeenCalledWith({"payload": {"number": 10}, "type": "ADD_NUM_Action"})
-
-		dispatch.addNum = jest.fn(num => num + 1)
-		expect(dispatch.addNum(10)).toBe(11)
-		expect(dispatch.addNum).toHaveBeenCalledTimes(1)
-		expect(dispatch.addNum).toHaveBeenCalledWith(10)
 	})
 })
