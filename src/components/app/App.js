@@ -15,14 +15,14 @@ export class App extends Component {
 					<AddFizzbuzzNum addNum={this.props.addNum}/>
 					{this.props.numbersFromStore.map(number => fizzbuzzFunc(number))}
 					<Fizzbuzz num={100}/>
-					{this.props.secretMessage}
+					{this.props.secretMessage ? <p>{this.props.secretMessage}</p> : null}
 				</header>
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = (state, props) => ({
+export const mapStateToProps = (state, props) => ({
 	isConnectedToRedux: getIsConnectedToRedux(state),
 	secretMessage: getSecretMessage(state),
 	numbersFromStore: getNumbers(state),

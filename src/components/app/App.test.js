@@ -3,11 +3,9 @@ import ConnectedApp, {App, mapDispatchToProps} from './App'
 import {Provider} from 'react-redux'
 import Enzyme from 'enzyme'
 import configureStore from 'redux-mock-store'
+import initialState from '../../store/initial-state'
 
-const middlewares = []
-const mockStore = configureStore(middlewares)
-
-describe('Without Redux', () => {
+describe('<App/> Without Redux', () => {
 	it('renders without crashing', () => {
 		Enzyme.shallow(<App numbersFromStore={[15, 3, 5]}/>)
 	})
@@ -43,22 +41,43 @@ describe('Without Redux', () => {
 	})
 })
 
-describe('With Redux', () => {
-	const initialState = {
-		isConnectedToRedux: true,
-		secretMessage: 'Tacos are awesome!',
-		numbers: []
-	}
+describe('<ConnectedApp/> With Redux', () => {
+	const middlewares = []
+	const mockStore = configureStore(middlewares)
 	const store = mockStore(initialState)
 
-	it('renders without crashing', () => {
-		Enzyme.shallow(<Provider store={store}><ConnectedApp/></Provider>)
+	it('contains a secret message', () => {
+		const wrapper = Enzyme.mount(<Provider store={store}><ConnectedApp/></Provider>)
+
+		// one element
+		const h2Msg = wrapper.find('h2').text()
+		expect(h2Msg).toBe('Yay, Redux!')
+
+		// an array of elements
+		const pMsg = wrapper.find('p').get(100).props.children
+		expect(pMsg).toBe('Tacos are awesome!')
 	})
 
-	it('renders without crashing', () => {
-		mapDispatchToProps(store.dispatch, {}).addNum(10)
+	it('how mock functions work', () => {
+		const mockFunc = jest.fn((num1, num2) => num1 + num2)
+		const result = mockFunc(1, 10)
+		
+		expect(result).toBe(11)
+		expect(mockFunc).toHaveBeenCalled()
+		expect(mockFunc).toHaveBeenCalledWith(1, 10)
+	})
 
-		const actions = store.getActions()
-		expect(actions).toHaveLength(1);
+	it('addNum is a valid function', () => {
+		const props = {}
+		let dispatch = jest.fn()
+		mapDispatchToProps(dispatch, props).addNum(10)
+
+		expect(dispatch).toHaveBeenCalledTimes(1)
+		expect(dispatch).toHaveBeenCalledWith({"payload": {"number": 10}, "type": "ADD_NUM_Action"})
+
+		dispatch.addNum = jest.fn(num => num + 1)
+		expect(dispatch.addNum(10)).toBe(11)
+		expect(dispatch.addNum).toHaveBeenCalledTimes(1)
+		expect(dispatch.addNum).toHaveBeenCalledWith(10)
 	})
 })
