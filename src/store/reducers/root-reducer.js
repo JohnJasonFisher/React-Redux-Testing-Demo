@@ -1,4 +1,4 @@
-import {ADD_NUM_Action} from './root-action'
+import {ADD_NUM_Action} from '../actions/root-action'
 
 export default (state = {}, action) => {
 	switch (action.type) {

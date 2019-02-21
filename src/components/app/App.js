@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import Fizzbuzz, {fizzbuzzFunc} from '../fizzbuzz/Fizzbuzz'
+import Fizzbuzz, {fizzbuzzFunc} from '../fizzbuzz/fizzbuzz'
 import {connect} from 'react-redux'
-import {getSecretMessage, getNumbers, getIsConnectedToRedux} from '../../store/root-selector'
+import {getSecretMessage, getNumbers, getIsConnectedToRedux} from '../../store/selectors/root-selector'
 import AddFizzbuzzNum from '../addFizzbuzzNum/AddFizzbuzzNum'
-import {ADD_NUM} from '../../store/root-action'
+import {ADD_NUM} from '../../store/actions/root-action'
 
 export class App extends Component {
 	render() {
