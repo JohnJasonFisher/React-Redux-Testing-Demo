@@ -3,7 +3,7 @@ import Fizzbuzz from '../fizzbuzz/fizzbuzz'
 import {connect} from 'react-redux'
 import {getSecretMessage} from '../../store/root-selector'
 
-class App extends Component {
+export class App extends Component {
 	render() {
 		return (
 			<div className='App' style={{backgroundColor: '#F5F5F5'}}>
@@ -18,7 +18,7 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = (State, props) => ({
+export const mapStateToProps = (State, props) => ({
 	isConnectedToRedux: State.isConnectedToRedux,
 	secretMessage: getSecretMessage(State),
 	...props
