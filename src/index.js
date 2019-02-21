@@ -4,15 +4,9 @@ import App from './components/app/App.js'
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 import rootReducer from './store/root-reducer'
+import initialState from './store/initial-state'
 
-export const store = createStore(
-	rootReducer,
-	{
-		isConnectedToRedux: true,
-		secretMessage: 'Tacos are awesome!',
-		numbers: []
-	}
-)
+const store = createStore(rootReducer, initialState)
 
 ReactDOM.render(
 	<Provider store={store}>
