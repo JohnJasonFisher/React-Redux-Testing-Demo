@@ -1,9 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import App from './App'
+import Fizzbuzz from '../fizzbuzz/fizzbuzz'
+import Enzyme from 'enzyme'
 
-it('renders without crashing', () => {
-	const div = document.createElement('div')
-	ReactDOM.render(<App />, div)
-	ReactDOM.unmountComponentAtNode(div)
+describe('<App/>', () => {
+	it('contains a <Fizzbuzz/>', () => {
+		const wrapper = Enzyme.shallow(<App/>)
+		expect(wrapper.containsMatchingElement(<Fizzbuzz/>)).toBe(true)
+	})
 })
