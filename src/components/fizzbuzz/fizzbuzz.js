@@ -1,3 +1,4 @@
+// This is a regular JS function.
 export default num => {
 	let answer = ''
 	if (num % 3 === 0 && num % 5 === 0) {

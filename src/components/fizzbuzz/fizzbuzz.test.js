@@ -1,5 +1,6 @@
 import fizzbuzz from './fizzbuzz'
 
+// We are testing a regular JS function
 describe('fizzbuzz', () => {
 	it('given 1 returns 1', () => {
 		const value = fizzbuzz(1)
